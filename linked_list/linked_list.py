@@ -18,6 +18,11 @@ class LinkedList:
             print(temp.value)
             temp = temp.next
 
+    def make_empty(self):
+        self.head = None
+        self.tail = None
+        self.length = 0
+
     def append(self, value):
         """Create a new node and add it to the end."""
         new_node = Node(value)
@@ -48,10 +53,18 @@ class LinkedList:
 
     def prepend(self, value):
         """Create a new node and add it to the beginning."""
-        ...
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
 
     def insert(self, index, value):
-        """Create a new node and insert it."""
+        """Create a new node and insert it at index."""
+        ...
 
 
 my_linked_list = LinkedList(4)
