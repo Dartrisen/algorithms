@@ -64,6 +64,21 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(self.mock.tail.value, 1)
         self.assertEqual(self.mock.length, 2)
 
+    def test_get(self):
+        self.mock.append(1)
+        self.mock.append(2)
+        self.mock.append(3)
+        self.assertEqual(self.mock.get(0).value, 1)
+        self.assertEqual(self.mock.get(1).value, 2)
+        self.assertEqual(self.mock.get(2).value, 3)
+
+    def test_get_empty(self):
+        self.assertIsNone(self.mock.get(3))
+        self.assertIsNone(self.mock.get(-1))
+
+    def test_insert(self):
+        self.assertRaises(NotImplementedError)
+
 
 if __name__ == '__main__':
     unittest.main()

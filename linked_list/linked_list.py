@@ -12,6 +12,15 @@ class LinkedList:
         self.tail = new_node
         self.length = 1
 
+    def get(self, index):
+        """Get the node with required index."""
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp
+
     def print_list(self):
         temp = self.head
         while temp is not None:
