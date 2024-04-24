@@ -76,6 +76,19 @@ class TestLinkedList(unittest.TestCase):
         self.assertIsNone(self.mock.get(3))
         self.assertIsNone(self.mock.get(-1))
 
+    def test_set(self):
+        self.mock.append(1)
+        self.mock.append(2)
+        self.mock.append(3)
+        self.assertTrue(self.mock.set(0, 4))
+        self.assertEqual(self.mock.get(0).value, 4)
+        self.assertTrue(self.mock.set(1, 5))
+        self.assertEqual(self.mock.get(1).value, 5)
+        self.assertTrue(self.mock.set(2, 6))
+        self.assertEqual(self.mock.get(2).value, 6)
+        self.assertFalse(self.mock.set(3, 7))
+        self.assertFalse(self.mock.set(-1, 8))
+
     def test_insert(self):
         self.assertRaises(NotImplementedError)
 
