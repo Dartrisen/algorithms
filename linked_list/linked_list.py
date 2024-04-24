@@ -77,10 +77,3 @@ class LinkedList:
     def insert(self, index, value):
         """Create a new node and insert it at index."""
         ...
-
-
-my_linked_list = LinkedList(4)
-
-print('Head:', my_linked_list.head.value)
-print('Tail:', my_linked_list.tail.value)
-print('Length:', my_linked_list.length)

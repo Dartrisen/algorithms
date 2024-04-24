@@ -35,6 +35,24 @@ class TestLinkedList(unittest.TestCase):
     def test_pop_empty(self):
         """Test it."""
         self.assertIsNone(self.mock.pop())
+        self.assertIsNone(self.mock.head)
+        self.assertIsNone(self.mock.tail)
+        self.assertEqual(self.mock.length, 0)
+
+    def test_pop_first(self):
+        """Test it."""
+        self.mock.append(4)
+        self.mock.append(6)
+        self.mock.append(8)
+        self.assertEqual(self.mock.pop_first().value, 4)
+        self.assertEqual(self.mock.length, 2)
+        self.assertEqual(self.mock.head.value, 6)
+
+    def test_pop_first_empty(self):
+        """Test it."""
+        self.assertIsNone(self.mock.pop_first())
+        self.assertIsNone(self.mock.head)
+        self.assertIsNone(self.mock.tail)
         self.assertEqual(self.mock.length, 0)
 
     def test_prepend(self):
