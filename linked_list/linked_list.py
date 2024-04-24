@@ -51,6 +51,18 @@ class LinkedList:
             self.tail = None
         return temp
 
+    def pop_first(self):
+        """Pop out the first node."""
+        if self.length == 0:
+            return None
+        temp = self.head
+        self.head = self.head.next
+        temp.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.tail = None
+        return temp
+
     def prepend(self, value):
         """Create a new node and add it to the beginning."""
         new_node = Node(value)
