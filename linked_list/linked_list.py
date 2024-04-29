@@ -106,3 +106,6 @@ class LinkedList:
         temp.next = new_node
         self.length += 1
         return True
+
+    def remove(self, index):
+        raise NotImplementedError("This method is not implemented.")

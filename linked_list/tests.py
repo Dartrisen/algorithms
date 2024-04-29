@@ -99,6 +99,10 @@ class TestLinkedList(unittest.TestCase):
         """Test it."""
         self.assertFalse(self.mock.insert(-1, -1))
 
+    def test_remove(self):
+        with self.assertRaises(NotImplementedError):
+            self.mock.remove(1)
+
 
 if __name__ == '__main__':
     unittest.main()
