@@ -90,7 +90,14 @@ class TestLinkedList(unittest.TestCase):
         self.assertFalse(self.mock.set(-1, 8))
 
     def test_insert(self):
-        self.assertRaises(NotImplementedError)
+        """Test it."""
+        self.mock.append(1)
+        self.assertTrue(self.mock.insert(0, 0))
+        self.assertEqual(self.mock.get(0).value, 0)
+
+    def test_insert_false(self):
+        """Test it."""
+        self.assertFalse(self.mock.insert(-1, -1))
 
 
 if __name__ == '__main__':
