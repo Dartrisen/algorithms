@@ -121,3 +121,6 @@ class LinkedList:
         temp.next = None
         self.length -= 1
         return temp
+
+    def reverse(self):
+        raise NotImplementedError("The method is not implemented.")

@@ -114,6 +114,10 @@ class TestLinkedList(unittest.TestCase):
         self.assertIsNone(self.mock.remove(-1))
         self.assertIsNone(self.mock.remove(3))
 
+    def test_reverse(self):
+        with self.assertRaises(NotImplementedError):
+            self.mock.reverse()
+
 
 if __name__ == '__main__':
     unittest.main()
