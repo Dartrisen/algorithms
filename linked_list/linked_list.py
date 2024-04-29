@@ -56,11 +56,11 @@ class LinkedList:
         if self.length == 0:
             return None
         temp = self.head
-        pre = self.head
+        prev = self.head
         while temp.next:
-            pre = temp
+            prev = temp
             temp = temp.next
-        self.tail = pre
+        self.tail = prev
         self.tail.next = None
         self.length -= 1
         if self.length == 0:
@@ -108,4 +108,16 @@ class LinkedList:
         return True
 
     def remove(self, index):
-        raise NotImplementedError("This method is not implemented.")
+        """Pop out the node with particular index"""
+        if index < 0 or index > self.length:
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length - 1:
+            return self.pop()
+        prev = self.get(index - 1)
+        temp = prev.next
+        prev.next = temp.next
+        temp.next = None
+        self.length -= 1
+        return temp

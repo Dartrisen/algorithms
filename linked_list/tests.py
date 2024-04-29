@@ -91,7 +91,6 @@ class TestLinkedList(unittest.TestCase):
 
     def test_insert(self):
         """Test it."""
-        self.mock.append(1)
         self.assertTrue(self.mock.insert(0, 0))
         self.assertEqual(self.mock.get(0).value, 0)
 
@@ -99,9 +98,21 @@ class TestLinkedList(unittest.TestCase):
         """Test it."""
         self.assertFalse(self.mock.insert(-1, -1))
 
+    # def test_remove(self):
+    #     with self.assertRaises(NotImplementedError):
+    #         self.mock.remove(1)
+
     def test_remove(self):
-        with self.assertRaises(NotImplementedError):
-            self.mock.remove(1)
+        self.mock.append(1)
+        self.mock.append(2)
+        self.mock.append(3)
+        self.assertEqual(self.mock.remove(0).value, 1)
+        self.assertEqual(self.mock.length, 2)
+        self.assertEqual(self.mock.remove(1).value, 3)
+
+    def test_remove_invalid_index(self):
+        self.assertIsNone(self.mock.remove(-1))
+        self.assertIsNone(self.mock.remove(3))
 
 
 if __name__ == '__main__':
