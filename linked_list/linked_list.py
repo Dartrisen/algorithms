@@ -49,6 +49,7 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
         self.length += 1
+        return True
 
     def pop(self):
         """Pop out the last node."""
@@ -89,7 +90,19 @@ class LinkedList:
             new_node.next = self.head
             self.head = new_node
         self.length += 1
+        return True
 
     def insert(self, index, value):
         """Create a new node and insert it at index."""
-        ...
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        new_node = Node(value)
+        temp = self.get(index - 1)
+        new_node.next = temp.next
+        temp.next = new_node
+        self.length += 1
+        return True
